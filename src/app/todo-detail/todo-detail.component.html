@@ -1,0 +1,16 @@
+<div *ngIf='todo'>
+  <h2>Description:</h2>
+  <h3>Id: {{todo.id}}</h3>
+  <h4>Description: {{todo.description}}</h4>
+  <h5 *ngIf='todo.important'>Important</h5>
+  <h5>Created on: {{todo.created}}</h5>
+
+</div>
+<div *ngIf='todo'>
+  <label for="description">Description: </label>
+  <input id="description" [(ngModel)]="todo.description" placeholder="Todo-Description"/>
+  <label for="created">Created on: </label>
+  <input id="created" [(ngModel)]="todo.created"/>
+</div>
+<button (click)="goBack()">Go Back</button>
+<!-- <button (click)="save()">Save</button> -->

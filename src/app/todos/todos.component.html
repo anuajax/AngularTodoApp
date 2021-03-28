@@ -1,0 +1,14 @@
+<div class="all-todos">
+  <button><a routerLink="/important">Important Todos</a></button>
+  <li *ngFor="let t of todos">
+      <h4>{{t.id}} </h4>
+      <h4>{{t.description}}</h4>
+      <div>
+      <button (click)="deleteTodo(t)">Delete</button>
+      <button><a routerLink="/detail/{{t.id}}">View</a></button>
+      <button *ngIf="t.important" (click)="markImportant(t)">Mark Unimportant</button>
+      <button *ngIf="!t.important" (click)="markImportant(t)">Mark Important</button>
+      </div>
+  </li>
+</div>
+

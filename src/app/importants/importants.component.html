@@ -1,0 +1,12 @@
+<div>
+  <li *ngFor="let t of importants">
+    <h4>{{t.id}} </h4>
+    <h4>{{t.description}}</h4>
+    <div>
+    <button>Delete</button>
+    <button><a routerLink="/detail/{{t.id}}">View</a></button>
+    </div>
+  </li>
+</div>
+<button (click)="goBack()">Go Back</button>
+
