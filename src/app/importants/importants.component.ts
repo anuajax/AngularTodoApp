@@ -13,12 +13,18 @@ export class ImportantsComponent implements OnInit {
   importants!: Todo[];
   getImportantTodos(): void
   {
-    this.todoService.getImportantTodos().subscribe(imps => this.importants = imps);
+    this.todoService.getImportantTodos().subscribe(imps => this.importants = imps.filter(t=>t.important));
+    //this.todoService.getImportantTodos().subscribe(imps => this.importants = imps);
+
   }
   ngOnInit(): void {
     this.getImportantTodos();
   }
   goBack(): void {
     this.location.back();
+  }
+  deleteTodo(todo: Todo): void {
+    this.importants = this.importants.filter(t => t !== todo);
+    this.todoService.deleteTodo(todo.id).subscribe();
   }
 }

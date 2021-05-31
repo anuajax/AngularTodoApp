@@ -7,17 +7,25 @@ import { TodosComponent } from './todos/todos.component';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { ImportantsComponent } from './importants/importants.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { CompletedTodosComponent } from './completed-todos/completed-todos.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     TodosComponent,
     TodoDetailComponent,
-    ImportantsComponent
+    ImportantsComponent,
+    CompletedTodosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation:false})
   ],
   providers: [],
   bootstrap: [AppComponent]

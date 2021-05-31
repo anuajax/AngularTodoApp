@@ -1,5 +1,13 @@
 <div class="all-todos">
   <button><a routerLink="/important">Important Todos</a></button>
+<div>
+  <label id="new-todo">Desription</label>
+  <input #todoDescription for="new-todo"/>
+  <label id="new-todo">Date created</label>
+  <input #todoCreated for="new-todo"/>
+  <button (click)="addNewTodo(todoDescription.value,false,todoCreated.value);
+  todoDescription.value=''; todoCreated.value='' ">Add</button>
+</div>
   <li *ngFor="let t of todos">
       <h4>{{t.id}} </h4>
       <h4>{{t.description}}</h4>
